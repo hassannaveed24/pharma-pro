@@ -1,5 +1,5 @@
 {
-  "jwtPrivateKey": "unsecureKey",
+  "jwtPrivateKey": "",
   "db": "",
-  "requiresAuth": false
+  "requiresAuth": true
 }

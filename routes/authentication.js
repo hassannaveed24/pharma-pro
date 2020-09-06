@@ -10,7 +10,7 @@ module.exports = async (app) => {
           message: "Email and Password is required",
         });
 
-      let user = await User.findOne({ username: req.body.username });
+      const user = await User.findOne({ username: req.body.username });
       if (!user)
         return res.status(406).send({
           message: "Invalid username",
@@ -34,12 +34,7 @@ module.exports = async (app) => {
       };
 
       res.status(200).send({
-        result: true,
-        token: {
-          access_token: jwt.encodeJWT(payload),
-          token_type: "bearer",
-          expires_in: 172800,
-        },
+        token: jwt.encodeJWT(payload),
       });
     } catch (err) {
       res.status(406).send({ message: err.message });

@@ -1,14 +1,12 @@
 const mongoose = require("mongoose");
 const powerSchema = require("./power/power");
 
-const Role = mongoose.model(
-  "roles",
-  new mongoose.Schema({
-    value: { type: String },
-    powers: {
-      type: powerSchema,
-    },
-  })
-);
+const roleSchema = new mongoose.Schema({
+  value: { type: String },
+  powers: {
+    type: powerSchema,
+  },
+});
+const Role = mongoose.model("roles", roleSchema);
 
-module.exports = Role;
+module.exports = { Role, roleSchema };

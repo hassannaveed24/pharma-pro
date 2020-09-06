@@ -1,6 +1,7 @@
 const config = require("config");
-const jwt = require("js");
+const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
+const roleSchema = require("./role");
 
 const User = mongoose.model(
   "users",
@@ -27,6 +28,9 @@ const User = mongoose.model(
     isApproved: {
       type: Boolean,
       default: false,
+    },
+    role: {
+      type: roleSchema,
     },
   })
 );

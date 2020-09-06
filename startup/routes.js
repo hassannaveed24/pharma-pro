@@ -11,4 +11,6 @@ module.exports = (app) => {
   });
   // require("../middleware/auth");
   require("../routes/role")(app);
+  require("../routes/users")(app);
+  require("../routes/authentication")(app);
 };
